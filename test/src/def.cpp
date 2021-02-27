@@ -10,7 +10,7 @@ int position = 0;
 void introduction() 
 {
 	cout << "Press [Enter] to begin:";
-	std::getchar();  // haults the screen
+	getchar();  // haults the screen
 	cout << "\n";
 
 	cout << "\n";
