@@ -127,7 +127,6 @@ void setPosition()
 }
 
 void updateBoard() {
-	
 	if (player % 2 == 1) 
 	{
 		board[position - 1] = "X";
