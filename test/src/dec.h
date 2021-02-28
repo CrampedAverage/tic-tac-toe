@@ -10,6 +10,9 @@ void updateBoard();
 void changePlayer();
 void takeTurn();
 void endGame();
+struct convertString;
+void resetBoard();
+void restartGame();
 #endif
 #pragma once
 
