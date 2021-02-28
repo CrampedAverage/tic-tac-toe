@@ -1,4 +1,6 @@
 #include <iostream>
+#include <algorithm>
+#include <string>
 #include "dec.h"
 // globally defined
 using namespace std;
@@ -32,6 +34,7 @@ void introduction()
 	cout << "       |       |        \n";
 	cout << "   7   |   8   |   9    \n";
 	cout << "       |       |        \n\n";
+	takeTurn();
 }
 
 bool isWinner()
@@ -166,11 +169,49 @@ void endGame()
 {
 	if (isWinner())
 	{
-		cout << "There is a winner!" << endl;
+		cout << "Player "<< player << " won the Game!" << endl;
+		restartGame();
 	}
 
 	else if (isFilledUp())
 	{
 		cout << "There is a draw!" << endl;
+		restartGame();
 	}
+}
+
+struct convertString {
+	void operator()(char& c) { c = toupper((unsigned char)c); }
+};
+
+void resetBoard(string (&board)[9]) {
+	for (int i = 0; i < 9; i++) {
+		board[i] = ' ';
+	}
+}
+
+
+void restartGame() {
+	string answer;
+	cout << "Want to restart? (Y / N): ";
+	cin >> answer;
+	for_each(answer.begin(), answer.end(), convert());
+	cout << answer;
+	while (answer != "Y" && answer != "N") {
+		cout << "Try again: ";
+		cin >> answer;
+	}
+	
+	string* ptr = board;
+
+	if (answer == "Y") {
+		player = 1;
+		position = 0;
+		resetBoard(board);
+		introduction();
+	}
+	else {
+		cout << "Goodbye :)";
+	}
+
 }
