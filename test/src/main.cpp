@@ -6,7 +6,7 @@ using namespace std;    // using directive
 int main()
 {
     introduction();
-    takeTurn();
+    //takeTurn();
     endGame();
 
     return 0;
